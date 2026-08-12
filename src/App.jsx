@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './App.css';
 
 function App() {
-  // 카드 5: 상호작용 (버튼 클릭 시 상세 내용이 열리고 닫히는 상태)
   const [activeTab, setActiveTab] = useState(null);
 
   const toggleTab = (index) => {
@@ -11,16 +10,28 @@ function App() {
 
   return (
     <div className="portfolio-container">
-      {/* 카드 1: 대상과 공개 범위 */}
+      {/* 프로필 및 마스킹된 개인정보 영역 */}
       <header className="header-section">
         <h1>이 페이지는 IT 기업 채용 담당자 및 팀원들에게 저의 프론트엔드 최적화 및 인프라 구축 역량을 보여주기 위한 것입니다.</h1>
-        <div className="privacy-info">
-          <p><strong>✅ 공개하는 정보:</strong> 포트폴리오용 이름(OOO), 주요 프로젝트 경험, GitHub 주소</p>
-          <p><strong>🔒 공개하지 않는 정보:</strong> 실명, 개인 연락처, 거주지 상세 주소</p>
+        
+        <div className="profile-card">
+          <h3>기본 정보 및 프로젝트</h3>
+          <ul className="info-list">
+            <li><strong>이름:</strong> 홍길동</li>
+            <li><strong>주소:</strong> 서울특별시 강남구 *** (상세주소 비공개)</li>
+            <li><strong>연락처:</strong> 010-****-1234</li>
+            <li><strong>학교:</strong> 한국***대학교 ***학과 재학</li>
+            <li><strong>주요 프로젝트:</strong> 
+              <br/>- AI 학습 대시보드 UI 개발 및 최적화 (React)
+              <br/>- 엔터프라이즈 인프라 및 보안 네트워크 구축 (pfSense, Graylog)
+              <br/>- SK 부동산 홍보 지도 UI 제작
+            </li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/본인아이디" target="_blank" rel="noreferrer">https://github.com/본인아이디</a></li>
+          </ul>
         </div>
       </header>
 
-      {/* 카드 2 & 카드 5: 강점 3가지와 상호작용(아코디언 버튼) */}
+      {/* 핵심 역량 3가지 및 상호작용(아코디언 버튼) */}
       <main className="strengths-section">
         <h2>핵심 역량 3가지 (클릭하여 상세 보기)</h2>
         
