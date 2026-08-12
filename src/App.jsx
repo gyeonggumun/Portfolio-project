@@ -19,8 +19,8 @@ function App() {
           <ul className="info-list">
             <li><strong>이름:</strong> 문경구</li>
             <li><strong>주소:</strong> 부산광역시 연제구 *** (상세주소 비공개)</li>
-            <li><strong>연락처:</strong> 010-****-9890</li>
-            <li><strong>학교:</strong> **대학교 컴퓨터 공학과 졸업</li>
+            <li><strong>연락처:</strong> 010-****-9890 (상세 전화번호 비공개)</li>
+            <li><strong>학교:</strong> **대학교 컴퓨터 공학과 졸업 (상세 학교 비공개)</li>
             <li><strong>주요 프로젝트:</strong> 
               <br/>- AI 학습 대시보드 UI 개발 및 최적화 (React)
               <br/>- 엔터프라이즈 인프라 및 보안 네트워크 구축 (pfSense, Graylog)
