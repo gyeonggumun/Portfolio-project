@@ -18,6 +18,7 @@ function App() {
           <h3>기본 정보 및 프로젝트</h3>
           <ul className="info-list">
             <li><strong>이름:</strong> 문경구</li>
+            <li><strong>이메일:</strong> lion989072@gmail.com</li>
             <li><strong>주소:</strong> 부산광역시 연제구 *** (상세주소 비공개)</li>
             <li><strong>연락처:</strong> 010-****-9890 (상세 전화번호 비공개)</li>
             <li><strong>학교:</strong> **대학교 컴퓨터 공학과 졸업 (상세 학교 비공개)</li>
