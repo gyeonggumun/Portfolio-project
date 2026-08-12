@@ -17,16 +17,18 @@ function App() {
         <div className="profile-card">
           <h3>기본 정보 및 프로젝트</h3>
           <ul className="info-list">
-            <li><strong>이름:</strong> 홍길동</li>
-            <li><strong>주소:</strong> 서울특별시 강남구 *** (상세주소 비공개)</li>
-            <li><strong>연락처:</strong> 010-****-1234</li>
-            <li><strong>학교:</strong> 한국***대학교 ***학과 재학</li>
+            <li><strong>이름:</strong> 문경구</li>
+            <li><strong>주소:</strong> 부산광역시 연제구 *** (상세주소 비공개)</li>
+            <li><strong>연락처:</strong> 010-****-9890</li>
+            <li><strong>학교:</strong> **대학교 컴퓨터 공학과 졸업</li>
             <li><strong>주요 프로젝트:</strong> 
               <br/>- AI 학습 대시보드 UI 개발 및 최적화 (React)
               <br/>- 엔터프라이즈 인프라 및 보안 네트워크 구축 (pfSense, Graylog)
-              <br/>- SK 부동산 홍보 지도 UI 제작
+              <br/>- DB Master-Slave 서버 연동 및 PMM 기반 데이터베이스 모니터링 환경 구축
+              <br/>- SellScript 개발을 통한 서버 운영 및 보안 관리 자동화
+              <br/>- 악성코드 분석 환경 구축 및 샘플 기반 행위 분석·탐지 실습
             </li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/본인아이디" target="_blank" rel="noreferrer">https://github.com/본인아이디</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/gyeonggumun" target="_blank" rel="noreferrer">깃 허브 바로가기</a></li>
           </ul>
         </div>
       </header>
