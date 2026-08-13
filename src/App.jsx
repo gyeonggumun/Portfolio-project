@@ -12,7 +12,6 @@ function App() {
     <div className="portfolio-container">
       {/* 프로필 및 마스킹된 개인정보 영역 */}
       <header className="header-section">
-        <h1>이 페이지는 IT 기업 채용 담당자 및 팀원들에게 저의 프론트엔드 최적화 및 인프라 구축 역량을 보여주기 위한 것입니다.</h1>
         
         <div className="profile-card">
           <h3>기본 정보 및 프로젝트</h3>
