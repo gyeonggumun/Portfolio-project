@@ -111,7 +111,7 @@ function App() {
 
                     <div style={{ marginTop: '2.5rem' }}>
                       <a 
-                        href="https://여기에_노션_링크를_넣어주세요" 
+                        href="https://app.notion.com/p/oreumi/1-Infra-SEC-336ebaa8982b803e82bfcea7438cd298?source=copy_link" 
                         target="_blank" 
                         rel="noreferrer" 
                         className="evidence-link" 
@@ -278,7 +278,7 @@ function App() {
 
                     <div style={{ marginTop: '2.5rem' }}>
                       <a 
-                        href="https://여기에_노션_링크를_넣어주세요" 
+                        href="https://app.notion.com/p/oreumi/3-3-389ebaa8982b8030af22da166cde08a0?source=copy_link" 
                         target="_blank" 
                         rel="noreferrer" 
                         className="evidence-link" 
