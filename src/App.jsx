@@ -60,7 +60,7 @@ function App() {
             </div>
             <div className="strength-item">
               <button className={`interactive-btn ${activeTab === 2 ? 'active' : ''}`} onClick={() => toggleTab(2)}>
-                2. 시각적 균형을 고려한 UI 설계
+                2. 호텔 통합 보안 진단 및 위협 모델링 (SafeStay)
               </button>
             </div>
             <div className="strength-item">
@@ -275,14 +275,14 @@ function App() {
                     <div style={{ marginBottom: '2.5rem' }}>
                       <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
                         <iframe 
-                          src="https://www.youtube.com/embed/첫번째영상ID입력"
-                          title="호텔 보안 인프라 방어 시연 1" 
+                          src="https://www.youtube.com/embed/s6fb6bkrD3I"
+                          title="호텔 예약 시스템 웹 시연 " 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                           allowFullScreen
                         ></iframe>
                       </div>
-                      <a href="https://youtu.be/첫번째영상ID입력" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
-                        🔗 유튜브에서 영상 1 보기 ↗
+                      <a href="https://youtu.be/s6fb6bkrD3I" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
+                        🔗 유튜브에서 영상 확인 ↗
                       </a>
                     </div>
 
@@ -290,14 +290,14 @@ function App() {
                     <div>
                       <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
                         <iframe 
-                          src="https://www.youtube.com/embed/두번째영상ID입력" 
-                          title="호텔 보안 인프라 방어 시연 2" 
+                          src="https://www.youtube.com/embed/usLNwz1baw0" 
+                          title="Slowloris_공격_탐지" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                           allowFullScreen
                         ></iframe>
                       </div>
-                      <a href="https://youtu.be/두번째영상ID입력" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0, backgroundColor: '#475569' }}>
-                        🔗 유튜브에서 영상 2 보기 ↗
+                      <a href="https://youtu.be/usLNwz1baw0" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0, backgroundColor: '#475569' }}>
+                        🔗 유튜브에서 영상 확인 ↗
                       </a>
                     </div>
                   </div>
