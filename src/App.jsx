@@ -158,72 +158,72 @@ function App() {
                     {/* 이미지 1 (아키텍처) */}
                     <div className="gallery-item">
                       <img 
-                        src="/architecture.png" 
-                        alt="통합 기업 네트워크 및 보안 시스템 구성도" 
+                        src="/public/p1-1.png" 
+                        alt="네트워크 및 보안 시스템 구성도" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 통합 기업 네트워크 및 보안 시스템 구성도
+                        ▲ 네트워크 및 보안 시스템 구성도
                       </p>
                     </div>
 
                     {/* 이미지 2 */}
                     <div className="gallery-item">
                       <img 
-                        src="/image2.png" 
-                        alt="추가 보안 구현 화면 2" 
+                        src="/public/p1-2.jpg" 
+                        alt="패킷 트레이서 구성도" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 이미지 2에 대한 한 줄 설명을 여기에 적어주세요.
+                        ▲ 패킷 트레이서 구성도
                       </p>
                     </div>
 
                     {/* 이미지 3 */}
                     <div className="gallery-item">
                       <img 
-                        src="/image3.png" 
-                        alt="추가 보안 구현 화면 3" 
+                        src="/public/p1-3.jpg" 
+                        alt="각 서버의 로그가 Log서버에 정상 수집되어 저장 중임을 확인" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 이미지 3에 대한 한 줄 설명을 여기에 적어주세요.
+                        ▲ 각 서버의 로그가 Log서버에 정상 수집되어 저장 중임을 확인
                       </p>
                     </div>
 
                     {/* 이미지 4 */}
                     <div className="gallery-item">
                       <img 
-                        src="/image4.png" 
-                        alt="추가 보안 구현 화면 4" 
+                        src="/public/p1-4.jpg" 
+                        alt="서비스별 로그를 분리 저장해 추적 효율성 향상" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 이미지 4에 대한 한 줄 설명을 여기에 적어주세요.
+                        ▲ 서비스별 로그를 분리 저장해 추적 효율성 향상
                       </p>
                     </div>
 
                     {/* 이미지 5 */}
                     <div className="gallery-item">
                       <img 
-                        src="/image5.png" 
-                        alt="추가 보안 구현 화면 5" 
+                        src="/public/p1-5.jpg" 
+                        alt="Log서버 설정 인증서 로그 원본을 3종 분리 백업 장애 복구 및 감사 대응 기능" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 이미지 5에 대한 한 줄 설명을 여기에 적어주세요.
+                        ▲ Log서버 설정 인증서 로그 원본을 3종 분리 백업 장애 복구 및 감사 대응 기능
                       </p>
                     </div>
 
                     {/* 이미지 6 */}
                     <div className="gallery-item">
                       <img 
-                        src="/image6.png" 
-                        alt="추가 보안 구현 화면 6" 
+                        src="/public/p1-6.jpg" 
+                        alt="10분마다 자동 헬스체크 수행 서비스 장애를 조기에 감지하는 운영자동화 구현" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 이미지 6에 대한 한 줄 설명을 여기에 적어주세요.
+                        ▲ 10분마다 자동 헬스체크 수행 서비스 장애를 조기에 감지하는 운영자동화 구현
                       </p>
                     </div>
 
