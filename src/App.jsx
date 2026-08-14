@@ -235,20 +235,153 @@ function App() {
             {/* 2번 내용 */}
             {activeTab === 2 && (
               <>
-                <h2>2. 시각적 균형을 고려한 UI 설계</h2>
+                <h2>2. 호텔 통합 보안 진단 및 위협 모델링 (SafeStay)</h2>
+                
                 <div className="detail-grid">
+                  {/* 좌측: 상세 텍스트 설명 */}
                   <div className="detail-text">
-                    <h3>📌 상황 및 행동</h3>
-                    <p>SK 부동산 홍보 지도 및 전단지 제작 과정에서 텍스트와 이모지 배치의 시각적 불균형 문제가 있었습니다. 이를 해결하기 위해 아파트 텍스트를 이모지 왼쪽으로 재배치하는 등 세밀한 UI 조정을 진행했습니다.</p>
-                    <h3>💡 결과</h3>
-                    <p>화면의 시각적 균형이 개선되어 고객에게 전달되는 정보의 가독성과 전달력이 크게 높아졌습니다.</p>
-                    <a href="#" className="evidence-link">공개 가능한 근거: 지도 UI 디자인 결과물 (링크)</a>
+                    <h3>📌 프로젝트 목표</h3>
+                    <p>호텔 예약 시스템(SafeStay)을 외부 공격으로부터 안전하게 보호하기 위해 VLAN 네트워크 분리와 WAF, IDS/IPS를 결합한 다계층 심층 방어 아키텍처를 구축하는 것입니다.</p>
+                    
+                    <h3>🛠️ 기술 스택</h3>
+                    <p>
+                      <strong>OS/Network:</strong> Ubuntu 24.04, pfSense (VPN/방화벽), GNS3<br/>
+                      <strong>DB/Service:</strong> MariaDB, Nginx<br/>
+                      <strong>Security/Log:</strong> Suricata (IDS/IPS), ModSecurity (WAF), Graylog, GoAccess, PMM, Shell Script
+                    </p>
+
+                    <h3>🚀 역할 및 시도</h3>
+                    <p>
+                      <strong>DB/PMM/Shell Script 구축 및 악성코드 분석 담당</strong><br/>
+                      - <strong>DB 가용성 및 성능 모니터링:</strong> 가벼운 읽기 작업 처리에 적합한 MariaDB를 도입하고, Slave 서버 구성을 통해 장애 감지 및 이중화 환경을 구축했습니다. 또한 PMM(Percona Monitoring and Management) 서버를 작성하여 DB 성능을 실시간 모니터링했습니다.<br/>
+                      - <strong>악성 파일 방어 기제 구현:</strong> 파일명이나 확장자만으로 신뢰하지 않고, 서버 측에서 MIME 검사와 Magic Number 교차 검증을 수행하도록 로직을 구현했습니다. PHP/JSP 등 실행 파일의 업로드를 차단하고, 업로드된 파일은 웹 루트 외부 비실행 경로에 격리 저장했습니다.<br/>
+                      - <strong>보안 자동화:</strong> 쉘 스크립트를 작성하여 KISA 기준 취약점(U-01~U-67)을 자동 진단하고 주요 파일·로그 권한 취약점을 자동 조치하도록 구현했습니다.
+                    </p>
+                    
+                    <h3>💡 직면한 과제와 핵심 교훈</h3>
+                    <p>
+                      <strong>과제:</strong> 제한된 하드웨어 리소스 내에서 실시간 패킷 심층 분석과 악성코드 정적 분석을 수행해야 했으며, 단일 보안 솔루션만으로는 우회 공격에 취약했습니다.<br/>
+                      <strong>해결 및 교훈:</strong> 성능 테스트를 통해 멀티스레딩 지원이 우수한 Suricata를 IDS/IPS로 채택하고, ModSecurity WAF와 결합하여 외부 진입 경로와 웹 공격을 다계층으로 통제했습니다. OS Command Injection 및 Slowloris DoS 공격 시나리오를 직접 검증하며 방어 체계의 실효성을 확인했습니다. 이를 통해 단일 방어가 아닌 심층 방어(Defense in Depth) 전략의 중요성과, Suricata/WAF/방화벽 로그를 Graylog로 중앙 수집하여 통합 관제하는 체계의 필수성을 배웠습니다.
+                    </p>
                   </div>
+                  
+                  {/* 우측: 2개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
                   <div className="detail-media">
-                    <div className="video-wrapper">
-                       {/* 직접 올린 영상인 경우 (public 폴더) */}
-                       {/* <video src="/my-video.mp4" controls></video> */}
+                    <h3 style={{ fontSize: '1.2rem', color: '#93c5fd', marginTop: 0, marginBottom: '1rem' }}>
+                      ▶ 핵심 기능 및 공격 방어 시연 영상
+                    </h3>
+                    
+                    {/* --- 첫 번째 영상 세트 --- */}
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                        <iframe 
+                          src="https://www.youtube.com/embed/첫번째영상ID입력"
+                          title="호텔 보안 인프라 방어 시연 1" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <a href="https://youtu.be/첫번째영상ID입력" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
+                        🔗 유튜브에서 영상 1 보기 ↗
+                      </a>
                     </div>
+
+                    {/* --- 두 번째 영상 세트 --- */}
+                    <div>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                        <iframe 
+                          src="https://www.youtube.com/embed/두번째영상ID입력" 
+                          title="호텔 보안 인프라 방어 시연 2" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <a href="https://youtu.be/두번째영상ID입력" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0, backgroundColor: '#475569' }}>
+                        🔗 유튜브에서 영상 2 보기 ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 하단: 추가 시각 자료 및 이미지 갤러리 */}
+                <div style={{ marginTop: '2rem', borderTop: '1px solid #475569', paddingTop: '2rem' }}>
+                  <h3 style={{ fontSize: '1.3rem', color: '#93c5fd', marginBottom: '1.5rem' }}>📸 보안 아키텍처 및 검증 화면</h3>
+                  
+                  {/* 이미지가 2개씩 3줄로 고정 배열되는 그리드 */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
+                    
+                    {/* 이미지 1 (네트워크 구성) */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p2-1.png" 
+                        alt="호텔 네트워크 보안 구성도" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
+                        ▲ 호텔 네트워크 보안 구성도 (VLAN 분리)
+                      </p>
+                    </div>
+
+                    {/* 이미지 2 (환경구성도) */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p2-2.jpg" 
+                        alt="다계층 심층 방어 아키텍처 환경구성도" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
+                        ▲ 다계층 심층 방어 아키텍처 환경구성도
+                      </p>
+                    </div>
+
+                    {/* 이미지 3 (OS Command Injection 방어) */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p2-3.jpg" 
+                        alt="OS Command Injection / WAF 검증 및 방어 로그" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
+                        ▲ OS Command Injection / WAF 검증 및 방어 로그
+                      </p>
+                    </div>
+
+                    {/* 이미지 4 (Slowloris 방어) */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p2-4.jpg" 
+                        alt="Slowloris DoS 공격 탐지 및 IPS 차단 검증" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
+                        ▲ Slowloris DoS 공격 탐지 및 IPS 차단 검증
+                      </p>
+                    </div>
+
+                    {/* 이미지 5 (악성 파일 방어) */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p2-5.jpg" 
+                        alt="악성 파일 업로드 교차 검증 및 격리 저장" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
+                        ▲ 악성 파일 업로드 교차 검증 및 격리 저장
+                      </p>
+                    </div>
+
+                    {/* 이미지 6 (자동화 스크립트) */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p2-6.jpg" 
+                        alt="KISA 기준 보안 점검 자동화 스크립트 실행 결과" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
+                        ▲ KISA 기준 보안 점검 자동화 스크립트 실행 결과
+                      </p>
+                    </div>
+
                   </div>
                 </div>
               </>
