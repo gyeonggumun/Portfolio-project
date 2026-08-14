@@ -7,26 +7,20 @@ function App() {
 
   const toggleTab = (index) => {
     if (activeTab === index) {
-      // 이미 열려있는 것을 누르면 닫기
       setActiveTab(null);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // 새로운 탭 열고 부드럽게 아래로 스크롤 이동
       setActiveTab(index);
       setTimeout(() => {
         detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100); // 렌더링 후 이동하도록 약간의 지연
+      }, 100);
     }
   };
 
   return (
     <div className="portfolio-container">
-      
-      {/* --- 첫 화면 영역 (스크롤 없이 꽉 차는 100vh 공간) --- */}
       <div className="first-screen">
         <div className="content-wrapper">
-          
-          {/* 좌측: 프로필 영역 (이미지 추가 이전 기본 버전) */}
           <header className="header-section">
             <div className="profile-card">
               <h3>👨‍💻 기본 정보 및 주요 프로젝트</h3>
@@ -38,21 +32,19 @@ function App() {
                 <li><strong>학교</strong> **대학교 컴퓨터 공학과 졸업</li>
                 <li className="project-list">
                   <strong>주요 프로젝트</strong> 
-                <p>- 엔터프라이즈 인프라 및 보안 네트워크 구축 (pfSense, Graylog)</p>
-                <p>- DB Master-Slave 서버 연동 및 모니터링 구축</p>
-                <p>- SellScript 개발을 통한 서버 운영 자동화</p>
-                <p>- AI 학습 대시보드 UI 개발 및 최적화 (React)</p>
-                <p>- 양조장 체험 및 술 판매 페이지 UI/UX 개발 및 최적화 (React)</p>
+                  <p>- 엔터프라이즈 인프라 및 보안 네트워크 구축 (pfSense, Graylog)</p>
+                  <p>- DB Master-Slave 서버 연동 및 모니터링 구축</p>
+                  <p>- SellScript 개발을 통한 서버 운영 자동화</p>
+                  <p>- AI 학습 대시보드 UI 개발 및 최적화 (React)</p>
+                  <p>- 양조장 체험 및 술 판매 페이지 UI/UX 개발 및 최적화 (React)</p>
                 </li>
                 <li><strong>GitHub</strong> <a href="https://github.com/gyeonggumun" target="_blank" rel="noreferrer">저장소 바로가기 ↗</a></li>
               </ul>
             </div>
           </header>
 
-          {/* 우측: 핵심 역량 버튼 모음 */}
           <main className="strengths-section">
             <h2>💡 핵심 역량 3가지 (클릭하여 상세 보기)</h2>
-            
             <div className="strength-item">
               <button className={`interactive-btn ${activeTab === 1 ? 'active' : ''}`} onClick={() => toggleTab(1)}>
                 1. '아무도 믿지 않는다' 철통 보안 사내 서버 및 인프라 설계
@@ -72,18 +64,14 @@ function App() {
         </div>
       </div>
 
-      {/* --- 클릭 시 하단에 등장하는 전체화면 상세 영역 --- */}
       {activeTab !== null && (
         <div className="full-detail-section" ref={detailRef}>
           <div className="detail-content-box">
             
-            {/* 1번 내용 */}
             {activeTab === 1 && (
               <>
                 <h2>1. '아무도 믿지 않는다' 철통 보안 사내 서버 및 인프라 설계 (Gray Guard)</h2>
-                
                 <div className="detail-grid">
-                  {/* 좌측: 상세 텍스트 설명 */}
                   <div className="detail-text">
                     <h3>📌 프로젝트 목표</h3>
                     <p>기업 내부망의 논리적 망분리(VLAN) 및 DMZ 구성을 통해 외부 위협을 격리하고, 접근통제(ACL)와 중앙 로그 수집(Graylog)을 적용하여 가시성과 추적성을 확보한 안전한 서버 인프라를 설계 및 구축하는 것입니다.</p>
@@ -115,22 +103,19 @@ function App() {
                         target="_blank" 
                         rel="noreferrer" 
                         className="evidence-link" 
-                        style={{ display: 'inline-block', backgroundColor: '#3b82f6', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold' }}
                       >
                         📄 프로젝트 상세 노션 페이지로 이동 ↗
                       </a>
                     </div>
                   </div>
                   
-                  {/* 우측: 2개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
                   <div className="detail-media">
-                    <h3 style={{ fontSize: '1.2rem', color: '#93c5fd', marginTop: 0, marginBottom: '1rem' }}>
+                    <h3 style={{ fontSize: '1.2rem', color: '#1864ab', marginTop: 0, marginBottom: '1rem' }}>
                       ▶ 핵심 기능 시연 영상
                     </h3>
                     
-                    {/* --- 첫 번째 영상 세트 --- */}
                     <div style={{ marginBottom: '2.5rem' }}>
-                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem' }}>
                         <iframe 
                           src="https://www.youtube.com/embed/Go_emZm931w"
                           title="보안 인프라 시연 영상 1" 
@@ -143,9 +128,8 @@ function App() {
                       </a>
                     </div>
 
-                    {/* --- 두 번째 영상 세트 --- */}
                     <div>
-                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem' }}>
                         <iframe 
                           src="https://www.youtube.com/embed/Q9JLCOQBatk" 
                           title="보안 인프라 시연 영상 2" 
@@ -153,104 +137,49 @@ function App() {
                           allowFullScreen
                         ></iframe>
                       </div>
-                      <a href="https://youtu.be/Q9JLCOQBatk" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0, backgroundColor: '#475569' }}>
+                      <a href="https://youtu.be/Q9JLCOQBatk" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
                         🔗 유튜브에서 영상 2 보기 ↗
                       </a>
                     </div>
                   </div>
                 </div>
 
-                {/* 하단: 추가 시각 자료 및 이미지 갤러리 */}
-                <div style={{ marginTop: '2rem', borderTop: '1px solid #475569', paddingTop: '2rem' }}>
-                  <h3 style={{ fontSize: '1.3rem', color: '#93c5fd', marginBottom: '1.5rem' }}>📸 아키텍처 및 상세 구현 화면</h3>
-                  
-                  {/* 이미지가 2개씩 3줄로 고정 배열되는 그리드 */}
+                <div style={{ marginTop: '2rem', borderTop: '1px solid #e9ecef', paddingTop: '2rem' }}>
+                  <h3 style={{ fontSize: '1.3rem', color: '#212529', marginBottom: '1.5rem' }}>📸 아키텍처 및 상세 구현 화면</h3>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
-                    
-                    {/* 이미지 1 (아키텍처) */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p1-1.png" 
-                        alt="네트워크 및 보안 시스템 구성도" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 네트워크 및 보안 시스템 구성도
-                      </p>
+                      <img src="/p1-1.png" alt="네트워크 및 보안 시스템 구성도" />
+                      <p>▲ 네트워크 및 보안 시스템 구성도</p>
                     </div>
-
-                    {/* 이미지 2 */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p1-2.jpg" 
-                        alt="패킷 트레이서 구성도" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 패킷 트레이서 구성도
-                      </p>
+                      <img src="/p1-2.jpg" alt="패킷 트레이서 구성도" />
+                      <p>▲ 패킷 트레이서 구성도</p>
                     </div>
-
-                    {/* 이미지 3 */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p1-3.jpg" 
-                        alt="각 서버의 로그가 Log서버에 정상 수집되어 저장 중임을 확인" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 각 서버의 로그가 Log서버에 정상 수집되어 저장 중임을 확인
-                      </p>
+                      <img src="/p1-3.jpg" alt="각 서버의 로그가 Log서버에 정상 수집되어 저장 중임을 확인" />
+                      <p>▲ 각 서버의 로그가 Log서버에 정상 수집되어 저장 중임을 확인</p>
                     </div>
-
-                    {/* 이미지 4 */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p1-4.jpg" 
-                        alt="서비스별 로그를 분리 저장해 추적 효율성 향상" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 서비스별 로그를 분리 저장해 추적 효율성 향상
-                      </p>
+                      <img src="/p1-4.jpg" alt="서비스별 로그를 분리 저장해 추적 효율성 향상" />
+                      <p>▲ 서비스별 로그를 분리 저장해 추적 효율성 향상</p>
                     </div>
-
-                    {/* 이미지 5 */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p1-5.jpg" 
-                        alt="Log서버 설정 인증서 로그 원본을 3종 분리 백업 장애 복구 및 감사 대응 기능" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ Log서버 설정 인증서 로그 원본을 3종 분리 백업 장애 복구 및 감사 대응 기능
-                      </p>
+                      <img src="/p1-5.jpg" alt="Log서버 설정 인증서 로그 원본을 3종 분리 백업 장애 복구 및 감사 대응 기능" />
+                      <p>▲ Log서버 설정 인증서 로그 원본을 3종 분리 백업 장애 복구 및 감사 대응 기능</p>
                     </div>
-
-                    {/* 이미지 6 */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p1-6.jpg" 
-                        alt="10분마다 자동 헬스체크 수행 서비스 장애를 조기에 감지하는 운영자동화 구현" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 10분마다 자동 헬스체크 수행 서비스 장애를 조기에 감지하는 운영자동화 구현
-                      </p>
+                      <img src="/p1-6.jpg" alt="10분마다 자동 헬스체크 수행 서비스 장애를 조기에 감지하는 운영자동화 구현" />
+                      <p>▲ 10분마다 자동 헬스체크 수행 서비스 장애를 조기에 감지하는 운영자동화 구현</p>
                     </div>
-
                   </div>
                 </div>
               </>
             )}
 
-            {/* 2번 내용 */}
             {activeTab === 2 && (
               <>
                 <h2>2. 호텔 통합 보안 진단 및 위협 모델링 (SafeStay)</h2>
-                
                 <div className="detail-grid">
-                  {/* 좌측: 상세 텍스트 설명 */}
                   <div className="detail-text">
                     <h3>📌 프로젝트 목표</h3>
                     <p>호텔 예약 시스템(SafeStay)을 외부 공격으로부터 안전하게 보호하기 위해 VLAN 네트워크 분리와 WAF, IDS/IPS를 결합한 다계층 심층 방어 아키텍처를 구축하는 것입니다.</p>
@@ -282,22 +211,19 @@ function App() {
                         target="_blank" 
                         rel="noreferrer" 
                         className="evidence-link" 
-                        style={{ display: 'inline-block', backgroundColor: '#3b82f6', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold' }}
                       >
                         📄 프로젝트 상세 노션 페이지로 이동 ↗
                       </a>
                     </div>
                   </div>
                   
-                  {/* 우측: 2개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
                   <div className="detail-media">
-                    <h3 style={{ fontSize: '1.2rem', color: '#93c5fd', marginTop: 0, marginBottom: '1rem' }}>
+                    <h3 style={{ fontSize: '1.2rem', color: '#1864ab', marginTop: 0, marginBottom: '1rem' }}>
                       ▶ 핵심 기능 및 공격 방어 시연 영상
                     </h3>
                     
-                    {/* --- 첫 번째 영상 세트 --- */}
                     <div style={{ marginBottom: '2.5rem' }}>
-                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem' }}>
                         <iframe 
                           src="https://www.youtube.com/embed/s6fb6bkrD3I"
                           title="호텔 예약 시스템 웹 시연 " 
@@ -310,9 +236,8 @@ function App() {
                       </a>
                     </div>
 
-                    {/* --- 두 번째 영상 세트 --- */}
                     <div>
-                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem' }}>
                         <iframe 
                           src="https://www.youtube.com/embed/usLNwz1baw0" 
                           title="Slowloris_공격_탐지" 
@@ -320,98 +245,45 @@ function App() {
                           allowFullScreen
                         ></iframe>
                       </div>
-                      <a href="https://youtu.be/usLNwz1baw0" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0, backgroundColor: '#475569' }}>
+                      <a href="https://youtu.be/usLNwz1baw0" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
                         🔗 유튜브에서 영상 확인 ↗
                       </a>
                     </div>
                   </div>
                 </div>
 
-                {/* 하단: 추가 시각 자료 및 이미지 갤러리 */}
-                <div style={{ marginTop: '2rem', borderTop: '1px solid #475569', paddingTop: '2rem' }}>
-                  <h3 style={{ fontSize: '1.3rem', color: '#93c5fd', marginBottom: '1.5rem' }}>📸 보안 아키텍처 및 검증 화면</h3>
-                  
-                  {/* 이미지가 2개씩 3줄로 고정 배열되는 그리드 */}
+                <div style={{ marginTop: '2rem', borderTop: '1px solid #e9ecef', paddingTop: '2rem' }}>
+                  <h3 style={{ fontSize: '1.3rem', color: '#212529', marginBottom: '1.5rem' }}>📸 보안 아키텍처 및 검증 화면</h3>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
-                    
-                    {/* 이미지 1 (네트워크 구성) */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p2-1.jpg" 
-                        alt="네트워크 및 접근 통제 정책" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 네트워크 및 접근 통제 정책
-                      </p>
+                      <img src="/p2-1.jpg" alt="네트워크 및 접근 통제 정책" />
+                      <p>▲ 네트워크 및 접근 통제 정책</p>
                     </div>
-
-                    {/* 이미지 2 (환경구성도) */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p2-2.jpg" 
-                        alt="보안 솔루션 및 모니터링 정책" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 보안 솔루션 및 모니터링 정책
-                      </p>
+                      <img src="/p2-2.jpg" alt="보안 솔루션 및 모니터링 정책" />
+                      <p>▲ 보안 솔루션 및 모니터링 정책</p>
                     </div>
-
-                    {/* 이미지 3 (OS Command Injection 방어) */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p2-3.jpg" 
-                        alt="네트워크 구성" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 네트워크 구성
-                      </p>
+                      <img src="/p2-3.jpg" alt="네트워크 구성" />
+                      <p>▲ 네트워크 구성</p>
                     </div>
-
-                    {/* 이미지 4 (Slowloris 방어) */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p2-4.png" 
-                        alt="Slowloris DoS - IPS 검증" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ Slowloris DoS - IPS 검증
-                      </p>
+                      <img src="/p2-4.png" alt="Slowloris DoS - IPS 검증" />
+                      <p>▲ Slowloris DoS - IPS 검증</p>
                     </div>
-
-                    {/* 이미지 5 (악성 파일 방어) */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p2-5.jpg" 
-                        alt="보안 점검 Shell Scrept" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 보안 점검 Shell Scrept
-                      </p>
+                      <img src="/p2-5.jpg" alt="보안 점검 Shell Scrept" />
+                      <p>▲ 보안 점검 Shell Script</p>
                     </div>
-
-                    {/* 이미지 6 (자동화 스크립트) */}
                     <div className="gallery-item">
-                      <img 
-                        src="/p2-6.png" 
-                        alt="악성 코드 분석" 
-                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
-                      />
-                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 악성 코드 분석
-                      </p>
+                      <img src="/p2-6.png" alt="악성 코드 분석" />
+                      <p>▲ 악성 코드 분석</p>
                     </div>
-
                   </div>
                 </div>
               </>
             )}
 
-            {/* 3번 내용 */}
             {activeTab === 3 && (
               <>
                 <h2>3. 안정적인 인프라 및 네트워크 구축</h2>
@@ -429,7 +301,6 @@ function App() {
               </>
             )}
 
-            {/* 닫기 버튼 */}
             <button className="close-btn" onClick={() => {
               setActiveTab(null);
               window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -439,7 +310,6 @@ function App() {
           </div>
         </div>
       )}
-      
     </div>
   );
 }
