@@ -337,72 +337,72 @@ function App() {
                     {/* 이미지 1 (네트워크 구성) */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p2-1.png" 
-                        alt="호텔 네트워크 보안 구성도" 
+                        src="/p2-1.jpg" 
+                        alt="네트워크 및 접근 통제 정책" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 호텔 네트워크 보안 구성도 (VLAN 분리)
+                        ▲ 네트워크 및 접근 통제 정책
                       </p>
                     </div>
 
                     {/* 이미지 2 (환경구성도) */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p2-2.jpg" 
-                        alt="다계층 심층 방어 아키텍처 환경구성도" 
+                        src="/p2-2.jpg" 
+                        alt="보안 솔루션 및 모니터링 정책" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 다계층 심층 방어 아키텍처 환경구성도
+                        ▲ 보안 솔루션 및 모니터링 정책
                       </p>
                     </div>
 
                     {/* 이미지 3 (OS Command Injection 방어) */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p2-3.jpg" 
-                        alt="OS Command Injection / WAF 검증 및 방어 로그" 
+                        src="/p2-3.jpg" 
+                        alt="네트워크 구성" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ OS Command Injection / WAF 검증 및 방어 로그
+                        ▲ 네트워크 구성
                       </p>
                     </div>
 
                     {/* 이미지 4 (Slowloris 방어) */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p2-4.jpg" 
-                        alt="Slowloris DoS 공격 탐지 및 IPS 차단 검증" 
+                        src="/p2-4.png" 
+                        alt="Slowloris DoS - IPS 검증" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ Slowloris DoS 공격 탐지 및 IPS 차단 검증
+                        ▲ Slowloris DoS - IPS 검증
                       </p>
                     </div>
 
                     {/* 이미지 5 (악성 파일 방어) */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p2-5.jpg" 
-                        alt="악성 파일 업로드 교차 검증 및 격리 저장" 
+                        src="/p2-5.jpg" 
+                        alt="보안 점검 Shell Scrept" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ 악성 파일 업로드 교차 검증 및 격리 저장
+                        ▲ 보안 점검 Shell Scrept
                       </p>
                     </div>
 
                     {/* 이미지 6 (자동화 스크립트) */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p2-6.jpg" 
-                        alt="KISA 기준 보안 점검 자동화 스크립트 실행 결과" 
+                        src="/p2-6.png" 
+                        alt="악성 코드 분석" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.3)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#94a3b8' }}>
-                        ▲ KISA 기준 보안 점검 자동화 스크립트 실행 결과
+                        ▲ 악성 코드 분석
                       </p>
                     </div>
 
