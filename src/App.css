@@ -6,14 +6,14 @@
 
 body {
   overflow-x: hidden; 
-  overflow-y: auto; /* 내용이 확장되면 세로 스크롤을 허용함 */
-  background-color: #f1f5f9;
+  overflow-y: auto;
+  background-color: #0f172a; /* 전체 배경을 통일감 있는 어두운 톤으로 변경 */
   font-family: 'Pretendard', -apple-system, sans-serif;
-  color: #334155;
+  color: #f8fafc; /* 기본 글자색을 밝게 변경 */
   scroll-behavior: smooth;
 }
 
-/* --- 첫 화면 영역 (정확히 100vh를 차지하여 스크롤 방지) --- */
+/* --- 첫 화면 영역 --- */
 .first-screen {
   width: 100%;
   height: 100vh;
@@ -32,7 +32,7 @@ body {
   height: 85vh;
 }
 
-/* --- 좌측 카드 --- */
+/* --- 좌측 카드 (상세 영역과 통일되도록 어둡고 세련된 톤으로 변경) --- */
 .header-section {
   display: flex;
   flex-direction: column;
@@ -40,60 +40,22 @@ body {
 }
 
 .profile-card {
-  background-color: #ffffff;
+  background-color: #1e293b; /* 상세 영역 배경색과 동일하게 맞춤 */
   padding: 2.5rem;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* 그림자를 더 깊게 */
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.profile-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.profile-image-wrapper {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #eff6ff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-}
-
-.profile-image-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.profile-name {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 0.5rem;
-  letter-spacing: -1px;
-}
-
-.profile-bio {
-  font-size: 0.95rem;
-  color: #64748b;
-  line-height: 1.5;
-  word-break: keep-all;
+  border: 1px solid #334155; /* 은은한 테두리 추가 */
 }
 
 .profile-card h3 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
-  border-bottom: 3px solid #3b82f6;
+  border-bottom: 2px solid #3b82f6; /* 파란색 포인트 */
   padding-bottom: 0.8rem;
-  color: #0f172a;
+  color: #f8fafc;
 }
 
 .info-list {
@@ -106,28 +68,29 @@ body {
 .info-list li {
   font-size: 0.95rem;
   line-height: 1.5;
+  color: #cbd5e1; /* 약간 부드러운 흰색 */
 }
 
 .info-list strong {
   display: inline-block;
   width: 90px;
-  color: #1e293b;
+  color: #93c5fd; /* 포인트 컬러 통일 */
 }
 
 .project-list p {
   margin-left: 90px;
   margin-top: 0.3rem;
-  color: #475569;
+  color: #94a3b8;
   font-size: 0.9rem;
 }
 
 .info-list a {
-  color: #3b82f6;
+  color: #60a5fa;
   text-decoration: none;
   font-weight: bold;
 }
 
-/* --- 우측 버튼 영역 --- */
+/* --- 우측 버튼 영역 (다크 테마 통일) --- */
 .strengths-section {
   display: flex;
   flex-direction: column;
@@ -137,7 +100,7 @@ body {
 .strengths-section h2 {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
-  color: #0f172a;
+  color: #f8fafc;
 }
 
 .strength-item {
@@ -147,44 +110,44 @@ body {
 .interactive-btn {
   width: 100%;
   padding: 1.5rem 1.2rem;
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  background-color: #1e293b; /* 어두운 버튼 */
+  border: 1px solid #475569;
   border-radius: 12px;
   text-align: left;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: bold;
-  color: #1e293b;
+  color: #f8fafc;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .interactive-btn:hover {
-  background-color: #f8fafc;
-  border-color: #cbd5e1;
+  background-color: #334155;
+  border-color: #64748b;
   transform: translateY(-2px);
 }
 
 .interactive-btn.active {
-  background-color: #eff6ff;
-  border-color: #3b82f6;
-  color: #1d4ed8;
+  background-color: #3b82f6; /* 활성화 시 확 튀는 파란색 */
+  border-color: #60a5fa;
+  color: #ffffff;
 }
 
 .interactive-btn:focus {
-  outline: 3px solid #3b82f6;
+  outline: 3px solid #60a5fa;
   outline-offset: 2px;
 }
 
-/* --- 신규: 하단으로 확장되는 전체 화면 상세 영역 --- */
+/* --- 하단으로 확장되는 전체 화면 상세 영역 (첫 화면과 자연스럽게 이어짐) --- */
 .full-detail-section {
   width: 100%;
   min-height: 100vh;
-  background-color: #1e293b; /* 대비를 위해 어두운 배경 적용 */
+  background-color: #0f172a; /* 첫 화면 배경과 완전 동일하게 맞춰 단절감 해소 */
   color: #f8fafc;
-  padding: 8vh 4vw;
+  padding: 5vh 4vw;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   animation: fadeIn 0.6s ease-out;
 }
@@ -197,17 +160,22 @@ body {
 .detail-content-box {
   width: 100%;
   max-width: 1300px;
+  background-color: #1e293b; /* 상세 박스 영역을 첫 화면 프로필 카드와 동일한 스타일로 통일 */
+  padding: 3rem;
+  border-radius: 16px;
+  border: 1px solid #334155;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .detail-content-box h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #ffffff;
   margin-bottom: 2rem;
   border-bottom: 1px solid #475569;
   padding-bottom: 1rem;
 }
 
-/* 상세 내용 2단 그리드 (텍스트 / 미디어) */
+/* 상세 내용 2단 그리드 */
 .detail-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -227,7 +195,7 @@ body {
 }
 
 .detail-text p {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
   color: #cbd5e1;
   margin-bottom: 1rem;
@@ -241,7 +209,6 @@ body {
   background-color: #000;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
 .video-wrapper iframe,
@@ -285,11 +252,11 @@ body {
 /* 닫기 버튼 */
 .close-btn {
   display: block;
-  margin: 0 auto;
+  margin: 3rem auto 0 auto;
   padding: 1rem 3rem;
   background-color: transparent;
-  color: #cbd5e1;
-  border: 2px solid #475569;
+  color: #93c5fd;
+  border: 2px solid #3b82f6;
   border-radius: 50px;
   font-size: 1.1rem;
   cursor: pointer;
@@ -297,13 +264,15 @@ body {
 }
 
 .close-btn:hover {
-  background-color: #334155;
+  background-color: #3b82f6;
   color: #ffffff;
 }
 
 /* 1366 해상도 최적화 */
 @media (max-width: 1366px) {
-  .detail-content-box h2 { font-size: 1.6rem; }
+  .detail-content-box h2 { font-size: 1.5rem; }
   .detail-grid { gap: 2rem; }
   .detail-text p { font-size: 0.95rem; }
+  .detail-content-box { padding: 2rem; }
+  .profile-card { padding: 2rem; }
 }
