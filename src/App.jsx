@@ -108,6 +108,18 @@ function App() {
                       <strong>과제:</strong> 다수의 서버(Web, DB, DNS, SFTP)에서 발생하는 로그가 파편화되어 침해 사고 발생 시 신속한 원인 분석이 어려웠고, 로그 평문 전송 시 네트워크 스니핑 위협이 존재했습니다.<br/>
                       <strong>해결 및 교훈:</strong> rsyslog를 활용해 각 서버의 로그를 TLS로 암호화하여 Graylog 중앙 서버로 안전하게 전송 및 수집하도록 아키텍처를 개선했습니다. 이 과정을 통해 인프라 설계 시 '네트워크 논리적 격리'만큼이나 '데이터 전송 간 암호화'와 '로그 가시성 확보'가 방어의 핵심 지주임을 깊이 체감했습니다. 더불어 MariaDB 이중화를 직접 구현하며 데이터 무결성 유지의 중요성을 배웠습니다.
                     </p>
+
+                    <div style={{ marginTop: '2.5rem' }}>
+                      <a 
+                        href="https://여기에_노션_링크를_넣어주세요" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="evidence-link" 
+                        style={{ display: 'inline-block', backgroundColor: '#3b82f6', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold' }}
+                      >
+                        📄 프로젝트 상세 노션 페이지로 이동 ↗
+                      </a>
+                    </div>
                   </div>
                   
                   {/* 우측: 2개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
@@ -263,6 +275,18 @@ function App() {
                       <strong>과제:</strong> 제한된 하드웨어 리소스 내에서 실시간 패킷 심층 분석과 악성코드 정적 분석을 수행해야 했으며, 단일 보안 솔루션만으로는 우회 공격에 취약했습니다.<br/>
                       <strong>해결 및 교훈:</strong> 성능 테스트를 통해 멀티스레딩 지원이 우수한 Suricata를 IDS/IPS로 채택하고, ModSecurity WAF와 결합하여 외부 진입 경로와 웹 공격을 다계층으로 통제했습니다. OS Command Injection 및 Slowloris DoS 공격 시나리오를 직접 검증하며 방어 체계의 실효성을 확인했습니다. 이를 통해 단일 방어가 아닌 심층 방어(Defense in Depth) 전략의 중요성과, Suricata/WAF/방화벽 로그를 Graylog로 중앙 수집하여 통합 관제하는 체계의 필수성을 배웠습니다.
                     </p>
+
+                    <div style={{ marginTop: '2.5rem' }}>
+                      <a 
+                        href="https://여기에_노션_링크를_넣어주세요" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="evidence-link" 
+                        style={{ display: 'inline-block', backgroundColor: '#3b82f6', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold' }}
+                      >
+                        📄 프로젝트 상세 노션 페이지로 이동 ↗
+                      </a>
+                    </div>
                   </div>
                   
                   {/* 우측: 2개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
