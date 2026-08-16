@@ -348,13 +348,13 @@ function App() {
                     <div style={{ marginBottom: '2.5rem' }}>
                       <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
                         <iframe 
-                          src="https://www.youtube.com/embed/영상ID입력"
+                          src="https://www.youtube.com/embed/GbB7iVc5lSg"
                           title="Local Joy 플랫폼 시연 영상" 
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                           allowFullScreen
                         ></iframe>
                       </div>
-                      <a href="https://youtu.be/영상ID입력" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
+                      <a href="https://youtu.be/GbB7iVc5lSg" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
                         🔗 유튜브에서 영상 보기 ↗
                       </a>
                     </div>
