@@ -302,20 +302,51 @@ function App() {
                       <strong>Design/Planning:</strong> Figma, 사용자 행동 데이터 기반 UI/UX 설계
                     </p>
 
+                    <h3>🛠️ 기술 스택</h3>
+                    <p>
+                      <strong>Front-end:</strong> React, 지도 API (Kakao/Naver Map)<br/>
+                      <strong>Back-end:</strong> Node.js (Express), RESTful API<br/>
+                      <strong>Infra & DB:</strong> Linux, Nginx, MariaDB, Docker<br/>
+                      <strong>Data:</strong> 공공데이터포털(농수산식품유통공사, 지자체 통계)<br/>
+                      <strong>Design/Planning:</strong> Figma, 사용자 행동 데이터 기반 UI/UX 설계
+                    </p>
+
                     <h3>🚀 역할 및 시도</h3>
                     <p>
-                      <strong>서비스 기획 및 프론트엔드(UI/UX) 개발 담당</strong><br/>
-                      - <strong>데이터 통합 및 시각화:</strong> 각 기관(농림축산식품부, 관광공사 등)에 흩어진 600여 개의 양조장 및 주말농장 데이터를 수집하여, 직관적인 지도 기반 마커와 필터링 검색 시스템을 설계했습니다.<br/>
-                      - <strong>원스톱 사용자 여정 설계:</strong> 단순 정보 제공을 넘어, '탐색 → 예약 → 리뷰 공유 → 온라인 구매'로 이어지는 끊김 없는(Seamless) 사용자 경험(UX) 로직을 기획했습니다.<br/>
-                      - <strong>개인화 추천 UI:</strong> 20~30대 타겟 소비자의 라이프스타일에 맞추어, 취향과 리뷰 데이터 기반으로 양조장을 추천하는 맞춤형 인터페이스를 구상했습니다.
+                      <strong>서비스 기획 및 프론트/백엔드/인프라 통합 구축 담당</strong><br/>
+                      - <strong>백엔드 및 인프라 환경 구축:</strong> Linux 환경에서 Nginx와 MariaDB를 구성하고, 양조장 및 전통주 공공데이터 연동을 위한 백엔드 API를 직접 설계 및 개발했습니다.<br/>
+                      - <strong>데이터 통합 및 시각화:</strong> 전국 600개 이상의 전통 양조장 데이터를 수집 및 가공하여, 사용자 친화적인 지도 기반 마커와 필터링 검색 시스템을 구현했습니다.<br/>
+                      - <strong>원스톱 사용자 여정 설계:</strong> 단순 정보 제공을 넘어, '탐색 → 예약 → 리뷰 공유 → 온라인 구매'로 이어지는 끊김 없는(Seamless) 사용자 경험(UX) 로직을 기획했습니다.
                     </p>
                     
                     <h3>💡 직면한 과제와 핵심 교훈</h3>
                     <p>
-                      <strong>과제:</strong> 국내 체험 프로그램의 '정보 통합성(33점)'과 '디지털 접근성'이 해외 대비 크게 뒤처져 있어, 방대한 공공 데이터를 가공하고 사용자 친화적으로 보여주는 UI 설계가 까다로웠습니다.<br/>
-                      <strong>해결 및 교훈:</strong> 단순히 데이터를 나열하는 것이 아니라, 사용자가 직관적으로 위치를 파악하고 예약을 진행할 수 있도록 '지도 중심의 UI'를 최우선으로 설계했습니다. 이 과정에서 공공 데이터를 서비스 가치로 전환하는 기획력과, 복잡한 정보를 깔끔하게 렌더링하는 프론트엔드 컴포넌트 최적화의 중요성을 깊이 깨달았습니다.
+                      <strong>과제:</strong> 국내 체험 프로그램의 '정보 통합성(33점)'과 '디지털 접근성'이 해외 대비 크게 뒤처져 있어, 방대한 공공 데이터를 가공하고 안정적으로 서빙할 인프라와 직관적인 UI 설계가 동시에 필요했습니다.<br/>
+                      <strong>해결 및 교훈:</strong> 사용자가 위치를 쉽게 파악하고 예약을 진행할 수 있도록 '지도 중심의 UI'를 최우선으로 설계하고, 이를 뒷받침하기 위해 백엔드 API 응답 속도와 인프라 안정성을 최적화했습니다. 이 과정에서 데이터를 실제 서비스 가치로 전환하는 기획력과, 프론트엔드부터 인프라까지 전체 시스템 아키텍처를 아우르는 통합적 시야의 중요성을 깊이 깨달았습니다.
                     </p>
 
+                    
+                  </div>
+                  
+                  {/* 우측: 1개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
+                  <div className="detail-media">
+                    <h3 style={{ fontSize: '1.2rem', color: '#1864ab', marginTop: 0, marginBottom: '1rem' }}>
+                      ▶ 플랫폼 기획 및 시연 영상
+                    </h3>
+                    
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                        <iframe 
+                          src="https://www.youtube.com/embed/GbB7iVc5lSg"
+                          title="Local Joy 플랫폼 시연 영상" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <a href="https://youtu.be/GbB7iVc5lSg" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
+                        🔗 유튜브에서 영상 보기 ↗
+                      </a>
+                    </div>
                     {/* --- 외부 링크 버튼 2개 (노션, 깃허브) --- */}
                     <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                       <a 
@@ -338,27 +369,6 @@ function App() {
                       </a>
                     </div>
                   </div>
-                  
-                  {/* 우측: 1개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
-                  <div className="detail-media">
-                    <h3 style={{ fontSize: '1.2rem', color: '#1864ab', marginTop: 0, marginBottom: '1rem' }}>
-                      ▶ 플랫폼 기획 및 시연 영상
-                    </h3>
-                    
-                    <div style={{ marginBottom: '2.5rem' }}>
-                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
-                        <iframe 
-                          src="https://www.youtube.com/embed/GbB7iVc5lSg"
-                          title="Local Joy 플랫폼 시연 영상" 
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                          allowFullScreen
-                        ></iframe>
-                      </div>
-                      <a href="https://youtu.be/GbB7iVc5lSg" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
-                        🔗 유튜브에서 영상 보기 ↗
-                      </a>
-                    </div>
-                  </div>
                 </div>
 
                 {/* 하단: 추가 시각 자료 및 이미지 갤러리 */}
@@ -371,72 +381,72 @@ function App() {
                     {/* 이미지 1 */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p3-1.png" 
-                        alt="Local Joy 메인 화면 기획" 
+                        src="/p3-1.png" 
+                        alt="ERD 구성도" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
-                        ▲ Local Joy 메인 화면 기획
+                        ▲ ERD 구성도
                       </p>
                     </div>
 
                     {/* 이미지 2 */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p3-2.png" 
-                        alt="지도 기반 양조장 검색 UI" 
+                        src="/p3-2.png" 
+                        alt="제품 서비스의 목표 시장 분석" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
-                        ▲ 지도 기반 양조장 통합 검색 UI
+                        ▲ 제품 서비스의 목표 시장 분석
                       </p>
                     </div>
 
                     {/* 이미지 3 */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p3-3.png" 
-                        alt="체험 예약 및 원스톱 결제 시스템 설계" 
+                        src="/p3-3.png" 
+                        alt="양조장 체험 선택페이지" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
-                        ▲ 체험 예약 및 원스톱 결제 시스템 설계
+                        ▲ 양조장 체험 선택페이지
                       </p>
                     </div>
 
                     {/* 이미지 4 */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p3-4.png" 
-                        alt="사용자 맞춤형 추천 서비스" 
+                        src="/p3-4.png" 
+                        alt="상품 구매 선택 페이지" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
-                        ▲ 사용자 리뷰 및 데이터 기반 맞춤형 추천
+                        ▲ 상품 구매 선택 페이지
                       </p>
                     </div>
 
                     {/* 이미지 5 */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p3-5.png" 
-                        alt="공공 데이터 연동 아키텍처" 
+                        src="/p3-5.png" 
+                        alt="상품 구매 상세 페이지" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
-                        ▲ 공공 데이터 연동 구조 및 아키텍처
+                        ▲ 상품 구매 상세 페이지
                       </p>
                     </div>
 
                     {/* 이미지 6 */}
                     <div className="gallery-item">
                       <img 
-                        src="/public/p3-6.png" 
-                        alt="시장 조사 및 분석 대시보드" 
+                        src="/p3-6.png" 
+                        alt="체험 관리 관리자 페이지" 
                         style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
                       />
                       <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
-                        ▲ 전통주 시장 분석 및 경쟁 서비스 차별화 지표
+                        ▲ 체험 관리 관리자 페이지
                       </p>
                     </div>
 
