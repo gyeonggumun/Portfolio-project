@@ -319,20 +319,20 @@ function App() {
                     {/* --- 외부 링크 버튼 2개 (노션, 깃허브) --- */}
                     <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                       <a 
-                        href="https://여기에_노션_링크를_넣어주세요" 
+                        href="https://app.notion.com/p/1cf6f2b589e680698430c9f29c3f588a?v=1cf6f2b589e681d0a6af000c13a3cbaa&source=copy_link" 
                         target="_blank" 
                         rel="noreferrer" 
                         className="evidence-link" 
-                        style={{ display: 'inline-block', backgroundColor: '#3b82f6', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold', margin: 0 }}
+                        
                       >
                         📄 프로젝트 상세 노션 ↗
                       </a>
                       <a 
-                        href="https://여기에_깃허브_링크를_넣어주세요" 
+                        href="https://github.com/Dreamlike-Forest"
                         target="_blank" 
                         rel="noreferrer" 
                         className="evidence-link" 
-                        style={{ display: 'inline-block', backgroundColor: '#24292e', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold', margin: 0 }}
+                      
                       >
                         💻 GitHub 저장소 ↗
                       </a>
