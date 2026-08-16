@@ -284,18 +284,162 @@ function App() {
               </>
             )}
 
+            {/* 3번 내용 */}
             {activeTab === 3 && (
               <>
-                <h2>3. 안정적인 인프라 및 네트워크 구축</h2>
+                <h2>3. 주말농장 및 양조장 체험 통합 플랫폼 (Local Joy)</h2>
+                
                 <div className="detail-grid">
+                  {/* 좌측: 상세 텍스트 설명 */}
                   <div className="detail-text">
-                    <h3>📌 상황 및 행동</h3>
-                    <p>서버 인프라 구축 프로젝트 중 Graylog 및 pfSense 방화벽 설정에서 라우팅 및 로그 수집 오류가 발생했습니다. 원인을 분석하여 DNS용 53번 포트를 정확히 할당하고, firewalld의 protocol value 구문 오류를 수정했습니다.</p>
-                    <h3>💡 결과</h3>
-                    <p>에러가 완전히 해결되어 안정적인 서버 운영 및 보안 관리 자동화 기반을 완성했습니다.</p>
+                    <h3>📌 프로젝트 목표</h3>
+                    <p>파편화된 농촌 관광 데이터와 전통주 양조장 체험 정보를 하나의 지도 기반 UI로 통합하여, 사용자에게 체험 예약부터 전통주 구매까지 '원스톱 여정(One-Stop Journey)'을 제공하는 디지털 플랫폼을 구축하는 것입니다.</p>
+                    
+                    <h3>🛠️ 기술 스택 (예정/활용)</h3>
+                    <p>
+                      <strong>Front-end:</strong> React, 지도 API (Kakao/Naver Map)<br/>
+                      <strong>Data:</strong> 공공데이터포털(농수산식품유통공사, 지자체 통계)<br/>
+                      <strong>Design/Planning:</strong> Figma, 사용자 행동 데이터 기반 UI/UX 설계
+                    </p>
+
+                    <h3>🚀 역할 및 시도</h3>
+                    <p>
+                      <strong>서비스 기획 및 프론트엔드(UI/UX) 개발 담당</strong><br/>
+                      - <strong>데이터 통합 및 시각화:</strong> 각 기관(농림축산식품부, 관광공사 등)에 흩어진 600여 개의 양조장 및 주말농장 데이터를 수집하여, 직관적인 지도 기반 마커와 필터링 검색 시스템을 설계했습니다.<br/>
+                      - <strong>원스톱 사용자 여정 설계:</strong> 단순 정보 제공을 넘어, '탐색 → 예약 → 리뷰 공유 → 온라인 구매'로 이어지는 끊김 없는(Seamless) 사용자 경험(UX) 로직을 기획했습니다.<br/>
+                      - <strong>개인화 추천 UI:</strong> 20~30대 타겟 소비자의 라이프스타일에 맞추어, 취향과 리뷰 데이터 기반으로 양조장을 추천하는 맞춤형 인터페이스를 구상했습니다.
+                    </p>
+                    
+                    <h3>💡 직면한 과제와 핵심 교훈</h3>
+                    <p>
+                      <strong>과제:</strong> 국내 체험 프로그램의 '정보 통합성(33점)'과 '디지털 접근성'이 해외 대비 크게 뒤처져 있어, 방대한 공공 데이터를 가공하고 사용자 친화적으로 보여주는 UI 설계가 까다로웠습니다.<br/>
+                      <strong>해결 및 교훈:</strong> 단순히 데이터를 나열하는 것이 아니라, 사용자가 직관적으로 위치를 파악하고 예약을 진행할 수 있도록 '지도 중심의 UI'를 최우선으로 설계했습니다. 이 과정에서 공공 데이터를 서비스 가치로 전환하는 기획력과, 복잡한 정보를 깔끔하게 렌더링하는 프론트엔드 컴포넌트 최적화의 중요성을 깊이 깨달았습니다.
+                    </p>
+
+                    {/* --- 외부 링크 버튼 2개 (노션, 깃허브) --- */}
+                    <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                      <a 
+                        href="https://여기에_노션_링크를_넣어주세요" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="evidence-link" 
+                        style={{ display: 'inline-block', backgroundColor: '#3b82f6', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold', margin: 0 }}
+                      >
+                        📄 프로젝트 상세 노션 ↗
+                      </a>
+                      <a 
+                        href="https://여기에_깃허브_링크를_넣어주세요" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="evidence-link" 
+                        style={{ display: 'inline-block', backgroundColor: '#24292e', color: '#fff', padding: '0.8rem 1.5rem', borderRadius: '8px', fontWeight: 'bold', margin: 0 }}
+                      >
+                        💻 GitHub 저장소 ↗
+                      </a>
+                    </div>
                   </div>
+                  
+                  {/* 우측: 1개의 유튜브 영상 직접 재생 및 외부 링크 버튼 */}
                   <div className="detail-media">
-                    <div className="image-placeholder">인프라 구조도 사진을 여기에 넣으세요</div>
+                    <h3 style={{ fontSize: '1.2rem', color: '#1864ab', marginTop: 0, marginBottom: '1rem' }}>
+                      ▶ 플랫폼 기획 및 시연 영상
+                    </h3>
+                    
+                    <div style={{ marginBottom: '2.5rem' }}>
+                      <div className="video-wrapper" style={{ marginBottom: '0.5rem', boxShadow: '0 10px 20px rgba(0,0,0,0.5)' }}>
+                        <iframe 
+                          src="https://www.youtube.com/embed/영상ID입력"
+                          title="Local Joy 플랫폼 시연 영상" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                          allowFullScreen
+                        ></iframe>
+                      </div>
+                      <a href="https://youtu.be/영상ID입력" target="_blank" rel="noreferrer" className="evidence-link" style={{ display: 'block', textAlign: 'center', margin: 0 }}>
+                        🔗 유튜브에서 영상 보기 ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 하단: 추가 시각 자료 및 이미지 갤러리 */}
+                <div style={{ marginTop: '2rem', borderTop: '1px solid #e9ecef', paddingTop: '2rem' }}>
+                  <h3 style={{ fontSize: '1.3rem', color: '#212529', marginBottom: '1.5rem' }}>📸 서비스 기획 및 UI 설계 화면</h3>
+                  
+                  {/* 이미지가 2개씩 3줄로 고정 배열되는 그리드 */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem' }}>
+                    
+                    {/* 이미지 1 */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p3-1.png" 
+                        alt="Local Joy 메인 화면 기획" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
+                        ▲ Local Joy 메인 화면 기획
+                      </p>
+                    </div>
+
+                    {/* 이미지 2 */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p3-2.png" 
+                        alt="지도 기반 양조장 검색 UI" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
+                        ▲ 지도 기반 양조장 통합 검색 UI
+                      </p>
+                    </div>
+
+                    {/* 이미지 3 */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p3-3.png" 
+                        alt="체험 예약 및 원스톱 결제 시스템 설계" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
+                        ▲ 체험 예약 및 원스톱 결제 시스템 설계
+                      </p>
+                    </div>
+
+                    {/* 이미지 4 */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p3-4.png" 
+                        alt="사용자 맞춤형 추천 서비스" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
+                        ▲ 사용자 리뷰 및 데이터 기반 맞춤형 추천
+                      </p>
+                    </div>
+
+                    {/* 이미지 5 */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p3-5.png" 
+                        alt="공공 데이터 연동 아키텍처" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
+                        ▲ 공공 데이터 연동 구조 및 아키텍처
+                      </p>
+                    </div>
+
+                    {/* 이미지 6 */}
+                    <div className="gallery-item">
+                      <img 
+                        src="/public/p3-6.png" 
+                        alt="시장 조사 및 분석 대시보드" 
+                        style={{ width: '100%', height: 'auto', borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                      />
+                      <p style={{ textAlign: 'center', marginTop: '10px', fontSize: '0.95rem', color: '#868e96' }}>
+                        ▲ 전통주 시장 분석 및 경쟁 서비스 차별화 지표
+                      </p>
+                    </div>
+
                   </div>
                 </div>
               </>
