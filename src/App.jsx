@@ -57,7 +57,7 @@ function App() {
             </div>
             <div className="strength-item">
               <button className={`interactive-btn ${activeTab === 3 ? 'active' : ''}`} onClick={() => toggleTab(3)}>
-                3. 안정적인 인프라 및 네트워크 구축
+                3. 양조장 체험 및 술 판매 통합 플랫폼
               </button>
             </div>
           </main>
@@ -287,7 +287,7 @@ function App() {
             {/* 3번 내용 */}
             {activeTab === 3 && (
               <>
-                <h2>3. 주말농장 및 양조장 체험 통합 플랫폼 (Local Joy)</h2>
+                <h2>3. 양조장 체험 및 술 판매 통합 플랫폼 </h2>
                 
                 <div className="detail-grid">
                   {/* 좌측: 상세 텍스트 설명 */}
