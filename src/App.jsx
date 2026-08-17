@@ -1,9 +1,15 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './App.css';
 
 function App() {
   const [activeTab, setActiveTab] = useState(null);
   const detailRef = useRef(null);
+
+  // --- 화면 렌더링 시 알림창(Alert) 띄우기 ---
+  useEffect(() => {
+    alert("이 페이지는 SKT에게 k-뉴딜 부산 A반 문경구의 포토폴리오 페이지를 보여주기 위한 것이다");
+  }, []);
+  // -------------------------------------------
 
   const toggleTab = (index) => {
     if (activeTab === index) {
@@ -298,21 +304,16 @@ function App() {
                     <h3>🛠️ 기술 스택 (예정/활용)</h3>
                     <p>
                       <strong>Front-end:</strong> React, 지도 API (Kakao/Naver Map)<br/>
-                      <strong>Data:</strong> 공공데이터포털(농수산식품유통공사, 지자체 통계)<br/>
-                      <strong>Design/Planning:</strong> Figma, 사용자 행동 데이터 기반 UI/UX 설계
-                    </p>
-
-                    <h3>🛠️ 기술 스택 (예정/활용)</h3>
-                    <p>
-                      <strong>Front-end:</strong> React, 지도 API (Kakao/Naver Map)<br/>
-                      <strong>Data:</strong> 공공데이터포털(농수산식품유통공사, 지자체 통계)<br/>
-                      <strong>Design/Planning:</strong> Figma, 사용자 행동 데이터 기반 UI/UX 설계
+                      <strong>Back-end:</strong> Node.js (Express), RESTful API<br/>
+                      <strong>Infra & DB:</strong> Linux, Nginx, MariaDB, Docker<br/>
+                      <strong>Data/Planning:</strong> 공공데이터포털(농수산식품유통공사), Figma
                     </p>
 
                     <h3>🚀 역할 및 시도</h3>
                     <p>
-                      <strong>서비스 기획 및 프론트엔드(UI/UX) 개발 담당</strong><br/>
-                      - <strong>데이터 통합 및 시각화:</strong> 각 기관(농림축산식품부, 관광공사 등)에 흩어진 600여 개의 양조장 및 주말농장 데이터를 수집하여, 직관적인 지도 기반 마커와 필터링 검색 시스템을 설계했습니다.<br/>
+                      <strong>서비스 기획 및 프론트/백엔드/인프라 통합 구축 담당</strong><br/>
+                      - <strong>백엔드 및 인프라 환경 구축:</strong> Linux 환경에서 Nginx와 MariaDB를 구성하고, 양조장 및 전통주 공공데이터 연동을 위한 백엔드 API를 직접 설계 및 개발했습니다.<br/>
+                      - <strong>데이터 통합 및 시각화:</strong> 전국 600개 이상의 전통 양조장 데이터를 수집 및 가공하여, 사용자 친화적인 지도 기반 마커와 필터링 검색 시스템을 구현했습니다.<br/>
                       - <strong>원스톱 사용자 여정 설계:</strong> 단순 정보 제공을 넘어, '탐색 → 예약 → 리뷰 공유 → 온라인 구매'로 이어지는 끊김 없는(Seamless) 사용자 경험(UX) 로직을 기획했습니다.<br/>
                       - <strong>개인화 추천 UI:</strong> 20~30대 타겟 소비자의 라이프스타일에 맞추어, 취향과 리뷰 데이터 기반으로 양조장을 추천하는 맞춤형 인터페이스를 구상했습니다.
                     </p>
