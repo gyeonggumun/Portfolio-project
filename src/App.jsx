@@ -29,7 +29,7 @@ function App() {
                 <li><strong>이메일</strong> lion989072@gmail.com</li>
                 <li><strong>주소</strong> 부산광역시 연제구 *** (상세 비공개)</li>
                 <li><strong>연락처</strong> 010-****-9890 (상세 비공개)</li>
-                <li><strong>학교</strong> **대학교 컴퓨터 공학과 졸업</li>
+                <li><strong>학교</strong> **대학교 컴퓨터 공학과 졸업 (상세 비공개)</li>
                 <li className="project-list">
                   <strong>주요 프로젝트</strong> 
                   <p>- 엔터프라이즈 인프라 및 보안 네트워크 구축 (pfSense, Graylog)</p>
