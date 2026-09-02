@@ -6,6 +6,7 @@ import jwt from 'jsonwebtoken';
 
 const SECRET = "super_secret_key_for_assignment";
 
+// 1. 쿠키 파싱 함수
 const parseCookies = (cookieStr) => {
   if (!cookieStr) return {};
   return cookieStr.split(';').reduce((acc, curr) => {
@@ -15,6 +16,7 @@ const parseCookies = (cookieStr) => {
   }, {});
 };
 
+// 2. 쿠키 직렬화 함수
 const serializeCookie = (name, value, options = {}) => {
   let str = `${name}=${encodeURIComponent(value)}`;
   if (options.maxAge !== undefined) str += `; Max-Age=${options.maxAge}`;
@@ -25,18 +27,40 @@ const serializeCookie = (name, value, options = {}) => {
   return str;
 };
 
-if (!global.db) {
-  global.db = {
-    users: { "user123": { id: "user123", username: "testuser", devices: [] } }
-  };
-}
+// 3. (핵심) 쿠키에서 기기 목록(DB) 불러오기
+const getDevices = (cookies) => {
+  if (!cookies.auth_db_devices) return [];
+  try {
+    const json = Buffer.from(cookies.auth_db_devices, 'base64').toString('utf-8');
+    return JSON.parse(json).map(d => ({
+      ...d,
+      credentialPublicKey: new Uint8Array(Buffer.from(d.credentialPublicKey, 'base64'))
+    }));
+  } catch (e) {
+    return [];
+  }
+};
+
+// 4. (핵심) 기기 목록(DB)을 쿠키로 압축하여 저장하기
+const createDeviceCookie = (devices) => {
+  const plainDevices = devices.map(d => ({
+    ...d,
+    credentialPublicKey: Buffer.from(d.credentialPublicKey).toString('base64')
+  }));
+  const json = JSON.stringify(plainDevices);
+  const b64 = Buffer.from(json).toString('base64');
+  return serializeCookie('auth_db_devices', b64, { httpOnly: true, secure: true, path: '/', maxAge: 60 * 60 * 24 * 365 });
+};
+
 
 export default async function handler(req, res) {
   const { action } = req.query;
-  const user = global.db.users["user123"];
   const rpid = req.headers.host.split(':')[0];
   const expectedOrigin = `https://${req.headers.host}`;
   const cookies = parseCookies(req.headers.cookie);
+  
+  // Vercel 메모리 대신 쿠키에서 패스키 DB를 복원
+  const user = { id: "user123", username: "testuser", devices: getDevices(cookies) };
 
   try {
     if (action === 'register-generate') {
@@ -62,19 +86,19 @@ export default async function handler(req, res) {
 
       if (verification.verified) {
         const regInfo = verification.registrationInfo;
-        // 라이브러리 v9 및 v10+ 모든 버전에 호환되도록 안전한 추출
-        const credentialID = regInfo.credential?.id || regInfo.credentialID;
-        const credentialPublicKey = regInfo.credential?.publicKey || regInfo.credentialPublicKey;
-        const counter = regInfo.credential?.counter || regInfo.counter || 0;
-
         user.devices.push({
-          credentialID,
-          credentialPublicKey,
-          counter,
+          credentialID: regInfo.credential?.id || regInfo.credentialID,
+          credentialPublicKey: regInfo.credential?.publicKey || regInfo.credentialPublicKey,
+          counter: regInfo.credential?.counter || regInfo.counter || 0,
           name: req.body.deviceName || `Device ${user.devices.length + 1}`,
           createdAt: new Date().toISOString()
         });
-        res.setHeader('Set-Cookie', serializeCookie('auth_challenge', '', { maxAge: -1, path: '/' }));
+        
+        // 새로 등록된 기기를 쿠키 DB에 저장
+        res.setHeader('Set-Cookie', [
+          serializeCookie('auth_challenge', '', { maxAge: -1, path: '/' }),
+          createDeviceCookie(user.devices) 
+        ]);
         return res.status(200).json({ verified: true });
       }
     }
@@ -103,13 +127,13 @@ export default async function handler(req, res) {
       });
 
       if (verification.verified) {
-        const authInfo = verification.authenticationInfo;
-        device.counter = authInfo.newCounter;
+        device.counter = verification.authenticationInfo.newCounter;
         const token = jwt.sign({ id: user.id, username: user.username }, SECRET, { expiresIn: '1h' });
 
         res.setHeader('Set-Cookie', [
           serializeCookie('auth_token', token, { httpOnly: true, secure: true, sameSite: 'strict', path: '/' }),
-          serializeCookie('auth_challenge', '', { maxAge: -1, path: '/' })
+          serializeCookie('auth_challenge', '', { maxAge: -1, path: '/' }),
+          createDeviceCookie(user.devices) 
         ]);
         return res.status(200).json({ verified: true });
       }
@@ -127,21 +151,21 @@ export default async function handler(req, res) {
       return res.status(200).json([
         { id: 1, title: "준비 중인 프로젝트 메모", content: "React 19 마이그레이션 및 WebAuthn 도입" },
         { id: 2, title: "지원하려는 곳 목록", content: "SKT K-뉴딜, 프론트엔드 직무" },
-        { id: 3, title: "스스로 쓰는 회고", content: "서버리스 환경의 에러를 완벽히 해결함" }
+        { id: 3, title: "스스로 쓰는 회고", content: "서버리스 환경의 한계를 쿠키 DB로 완벽히 해결함!" }
       ]);
     }
 
     if (action === 'passkeys') {
       const token = cookies.auth_token;
       if (!token) return res.status(401).json({ error: "Unauthorized" });
-      const decoded = jwt.verify(token, SECRET);
-      const currentUser = global.db.users[decoded.id];
+      jwt.verify(token, SECRET);
 
       if (req.method === 'GET') {
-        return res.status(200).json(currentUser.devices.map(d => ({ credentialID: d.credentialID, name: d.name, createdAt: d.createdAt })));
+        return res.status(200).json(user.devices.map(d => ({ credentialID: d.credentialID, name: d.name, createdAt: d.createdAt })));
       }
       if (req.method === 'DELETE') {
-        currentUser.devices = currentUser.devices.filter(d => d.credentialID !== req.body.credentialID);
+        user.devices = user.devices.filter(d => d.credentialID !== req.body.credentialID);
+        res.setHeader('Set-Cookie', createDeviceCookie(user.devices));
         return res.status(200).json({ success: true });
       }
     }
