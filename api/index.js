@@ -150,7 +150,7 @@ export default async function handler(req, res) {
       jwt.verify(token, SECRET);
       return res.status(200).json([
         { id: 1, title: "준비 중인 프로젝트 메모", content: "React 19 마이그레이션 및 WebAuthn 도입" },
-        { id: 2, title: "지원하려는 곳 목록", content: "SKT K-뉴딜, 프론트엔드 직무" },
+        { id: 2, title: "지원하려는 곳 목록", content: "개발자 직무, 보안 관제, 네트워크 관리, 보안 컨설턴트" },
         { id: 3, title: "스스로 쓰는 회고", content: "서버리스 환경의 한계를 쿠키 DB로 완벽히 해결함!" }
       ]);
     }
