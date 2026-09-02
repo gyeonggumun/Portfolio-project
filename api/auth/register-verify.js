@@ -1,13 +1,12 @@
-// api/auth/register-verify.js
 import { verifyRegistrationResponse } from '@simplewebauthn/server';
-import db from '../../db.js';
+import db from '../db.js'; // 경로 수정됨
 
 export default async function handler(req, res) {
-  const { body } = req;
-  const user = db.users["user123"];
-  const expectedChallenge = db.challenges[user.id];
-
   try {
+    const { body } = req;
+    const user = db.users["user123"];
+    const expectedChallenge = db.challenges[user.id];
+
     const verification = await verifyRegistrationResponse({
       response: body.response,
       expectedChallenge,
@@ -17,18 +16,18 @@ export default async function handler(req, res) {
 
     if (verification.verified) {
       const { registrationInfo } = verification;
-      // 공개키만 서버에 저장, 개인키는 기기에 남음 (T08-C21, C22, C23)
       user.devices.push({
         credentialID: registrationInfo.credentialID,
         credentialPublicKey: registrationInfo.credentialPublicKey,
         counter: registrationInfo.counter,
-        name: body.deviceName || `Device ${user.devices.length + 1}`, // 사람이 알아볼 수 있는 이름 (T08-C24)
+        name: body.deviceName || `Device ${user.devices.length + 1}`,
         createdAt: new Date().toISOString()
       });
-      delete db.challenges[user.id]; // 사용한 질문 폐기
+      delete db.challenges[user.id];
       res.status(200).json({ verified: true });
     }
   } catch (error) {
+    console.error("Register Verify Error:", error);
     res.status(400).json({ error: error.message });
   }
 }
