@@ -31,16 +31,16 @@ function App() {
     }
   };
 
-  /* --- WebAuthn 패스키 로직 --- */
+  /* --- WebAuthn 패스키 로직 (단일 API URL로 수정됨) --- */
   const handleRegister = async () => {
     try {
-      const res = await fetch('/api/auth/register-generate');
+      const res = await fetch('/api?action=register-generate');
       const options = await res.json();
       
       const attResp = await startRegistration(options);
       const deviceName = prompt("이 기기의 이름을 정해주세요 (예: 내 맥북, 내 아이폰)");
       
-      const verifyRes = await fetch('/api/auth/register-verify', {
+      const verifyRes = await fetch('/api?action=register-verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ response: attResp, deviceName: deviceName || "알 수 없는 기기" })
@@ -57,12 +57,12 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch('/api/auth/login-generate');
+      const res = await fetch('/api?action=login-generate');
       const options = await res.json();
 
       const asseResp = await startAuthentication(options);
       
-      const verifyRes = await fetch('/api/auth/login-verify', {
+      const verifyRes = await fetch('/api?action=login-verify', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(asseResp)
@@ -82,27 +82,27 @@ function App() {
   };
 
   const handleLogout = async () => {
-    await fetch('/api/auth/logout');
+    await fetch('/api?action=logout');
     setIsLoggedIn(false);
     setPrivateData(null);
     setPasskeys([]);
     alert('로그아웃 되었습니다.');
   };
 
-  /* --- 비공개 데이터 및 패스키 목록 관리 --- */
+  /* --- 비공개 데이터 및 패스키 목록 관리 (단일 API URL로 수정됨) --- */
   const fetchPrivateData = async () => {
-    const res = await fetch('/api/private/data');
+    const res = await fetch('/api?action=private-data');
     if (res.ok) {
       setPrivateData(await res.json());
       setIsLoggedIn(true);
-      fetchPasskeys(); // 로그인 성공 시 패스키 목록도 함께 갱신
+      fetchPasskeys(); 
     } else {
       setIsLoggedIn(false);
     }
   };
 
   const fetchPasskeys = async () => {
-    const res = await fetch('/api/private/passkeys');
+    const res = await fetch('/api?action=passkeys');
     if (res.ok) {
       setPasskeys(await res.json());
     }
@@ -111,7 +111,7 @@ function App() {
   const handleDeletePasskey = async (credentialID) => {
     if (!confirm('이 패스키를 지우시겠습니까? 기기를 분실했을 때를 대비해 다른 패스키가 있는지 확인하세요.')) return;
     
-    await fetch('/api/private/passkeys', {
+    await fetch('/api?action=passkeys', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ credentialID })
