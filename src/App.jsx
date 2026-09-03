@@ -31,7 +31,7 @@ function App() {
     }
   };
 
-  /* --- WebAuthn 패스키 로직 (단일 API URL로 수정됨) --- */
+  /* --- WebAuthn 패스키 로직 --- */
   const handleRegister = async () => {
     try {
       const res = await fetch('/api?action=register-generate');
@@ -89,7 +89,7 @@ function App() {
     alert('로그아웃 되었습니다.');
   };
 
-  /* --- 비공개 데이터 및 패스키 목록 관리 (단일 API URL로 수정됨) --- */
+  /* --- 비공개 데이터 및 패스키 목록 관리 --- */
   const fetchPrivateData = async () => {
     const res = await fetch('/api?action=private-data');
     if (res.ok) {
@@ -111,12 +111,23 @@ function App() {
   const handleDeletePasskey = async (credentialID) => {
     if (!confirm('이 패스키를 지우시겠습니까? 기기를 분실했을 때를 대비해 다른 패스키가 있는지 확인하세요.')) return;
     
-    await fetch('/api?action=passkeys', {
+    const res = await fetch('/api?action=passkeys', {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ credentialID })
     });
-    fetchPasskeys();
+    
+    const data = await res.json();
+    
+    // 만약 마지막 패스키까지 모두 지웠다면 프론트엔드도 로그아웃 처리
+    if (data.isLogOut) {
+      alert("모든 패스키가 삭제되어 보안상 자동 로그아웃 됩니다.");
+      setIsLoggedIn(false);
+      setPrivateData(null);
+      setPasskeys([]);
+    } else {
+      fetchPasskeys();
+    }
   };
 
   return (
