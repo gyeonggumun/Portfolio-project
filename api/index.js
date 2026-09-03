@@ -6,7 +6,6 @@ import jwt from 'jsonwebtoken';
 
 const SECRET = "super_secret_key_for_assignment";
 
-// 1. 쿠키 파싱 함수
 const parseCookies = (cookieStr) => {
   if (!cookieStr) return {};
   return cookieStr.split(';').reduce((acc, curr) => {
@@ -16,10 +15,13 @@ const parseCookies = (cookieStr) => {
   }, {});
 };
 
-// 2. 쿠키 직렬화 함수
 const serializeCookie = (name, value, options = {}) => {
   let str = `${name}=${encodeURIComponent(value)}`;
-  if (options.maxAge !== undefined) str += `; Max-Age=${options.maxAge}`;
+  if (options.maxAge !== undefined) {
+    str += `; Max-Age=${options.maxAge}`;
+    // 완벽한 쿠키 삭제를 위해 만료일을 과거로 덮어쓰기
+    if (options.maxAge <= 0) str += `; Expires=Thu, 01 Jan 1970 00:00:00 GMT`;
+  }
   if (options.path) str += `; Path=${options.path}`;
   if (options.httpOnly) str += `; HttpOnly`;
   if (options.secure) str += `; Secure`;
@@ -27,7 +29,6 @@ const serializeCookie = (name, value, options = {}) => {
   return str;
 };
 
-// 3. (핵심) 쿠키에서 기기 목록(DB) 불러오기
 const getDevices = (cookies) => {
   if (!cookies.auth_db_devices) return [];
   try {
@@ -41,7 +42,6 @@ const getDevices = (cookies) => {
   }
 };
 
-// 4. (핵심) 기기 목록(DB)을 쿠키로 압축하여 저장하기
 const createDeviceCookie = (devices) => {
   const plainDevices = devices.map(d => ({
     ...d,
@@ -52,14 +52,12 @@ const createDeviceCookie = (devices) => {
   return serializeCookie('auth_db_devices', b64, { httpOnly: true, secure: true, path: '/', maxAge: 60 * 60 * 24 * 365 });
 };
 
-
 export default async function handler(req, res) {
   const { action } = req.query;
   const rpid = req.headers.host.split(':')[0];
   const expectedOrigin = `https://${req.headers.host}`;
   const cookies = parseCookies(req.headers.cookie);
   
-  // Vercel 메모리 대신 쿠키에서 패스키 DB를 복원
   const user = { id: "user123", username: "testuser", devices: getDevices(cookies) };
 
   try {
@@ -94,9 +92,8 @@ export default async function handler(req, res) {
           createdAt: new Date().toISOString()
         });
         
-        // 새로 등록된 기기를 쿠키 DB에 저장
         res.setHeader('Set-Cookie', [
-          serializeCookie('auth_challenge', '', { maxAge: -1, path: '/' }),
+          serializeCookie('auth_challenge', '', { maxAge: 0, path: '/' }),
           createDeviceCookie(user.devices) 
         ]);
         return res.status(200).json({ verified: true });
@@ -132,7 +129,7 @@ export default async function handler(req, res) {
 
         res.setHeader('Set-Cookie', [
           serializeCookie('auth_token', token, { httpOnly: true, secure: true, sameSite: 'strict', path: '/' }),
-          serializeCookie('auth_challenge', '', { maxAge: -1, path: '/' }),
+          serializeCookie('auth_challenge', '', { maxAge: 0, path: '/' }),
           createDeviceCookie(user.devices) 
         ]);
         return res.status(200).json({ verified: true });
@@ -140,7 +137,8 @@ export default async function handler(req, res) {
     }
 
     if (action === 'logout') {
-      res.setHeader('Set-Cookie', serializeCookie('auth_token', '', { maxAge: -1, path: '/' }));
+      // 보안 옵션까지 완벽히 일치시켜야 브라우저가 쿠키를 삭제함
+      res.setHeader('Set-Cookie', serializeCookie('auth_token', '', { maxAge: 0, path: '/', httpOnly: true, secure: true, sameSite: 'strict' }));
       return res.status(200).json({ success: true });
     }
 
@@ -150,7 +148,7 @@ export default async function handler(req, res) {
       jwt.verify(token, SECRET);
       return res.status(200).json([
         { id: 1, title: "준비 중인 프로젝트 메모", content: "React 19 마이그레이션 및 WebAuthn 도입" },
-        { id: 2, title: "지원하려는 곳 목록", content: "개발자 직무, 보안 관제, 네트워크 관리, 보안 컨설턴트" },
+        { id: 2, title: "지원하려는 곳 목록", content: "SKT K-뉴딜, 프론트엔드 직무" },
         { id: 3, title: "스스로 쓰는 회고", content: "서버리스 환경의 한계를 쿠키 DB로 완벽히 해결함!" }
       ]);
     }
@@ -163,10 +161,18 @@ export default async function handler(req, res) {
       if (req.method === 'GET') {
         return res.status(200).json(user.devices.map(d => ({ credentialID: d.credentialID, name: d.name, createdAt: d.createdAt })));
       }
+      
       if (req.method === 'DELETE') {
         user.devices = user.devices.filter(d => d.credentialID !== req.body.credentialID);
-        res.setHeader('Set-Cookie', createDeviceCookie(user.devices));
-        return res.status(200).json({ success: true });
+        
+        const setCookies = [createDeviceCookie(user.devices)];
+        // 기기를 전부 지웠다면 토큰도 파기하여 강제 로그아웃 처리
+        if (user.devices.length === 0) {
+          setCookies.push(serializeCookie('auth_token', '', { maxAge: 0, path: '/', httpOnly: true, secure: true, sameSite: 'strict' }));
+        }
+        
+        res.setHeader('Set-Cookie', setCookies);
+        return res.status(200).json({ success: true, isLogOut: user.devices.length === 0 });
       }
     }
 
