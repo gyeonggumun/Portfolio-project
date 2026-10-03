@@ -158,11 +158,10 @@ sequenceDiagram
 포트폴리오 화면에서 탭 전환을 통해 열람할 수 있는 3대 주요 프로젝트입니다.
 
 ### 1. Gray Guard: '아무도 믿지 않는다' 철통 보안 사내 서버 및 인프라 설계
-- **프로젝트 포트폴리오**: [GrayGuard 상세 기록](docs/grayguard-portfolio.md)
 - **핵심 목표**: 기업 내부망 논리적 망분리(VLAN) 및 DMZ 구성을 통해 외부 위협을 격리하고 중앙 로그 수집 가시성을 확보한 엔터프라이즈 인프라 구축
 - **기술 스택**: Rocky Linux, pfSense, OpenSSH, MariaDB Replication, Apache, BIND9, Graylog, rsyslog (TLS)
 - **주요 역할 및 시도**:
-  - **DB 복제 및 접근 통제**: MariaDB Master-Slave 복제와 백업·TLS 설정을 구성하고, 허용된 서버에서만 DB에 접근하도록 정책 적용 (읽기 분산·자동 장애 전환은 미검증)
+  - **DB 이중화 및 접근 통제**: MariaDB Master-Slave 복제 아키텍처 구축으로 읽기 부하 분산 및 고가용성 확보, DMZ/Log 서버 전용 3306 접근 제어
   - **시스템 하드닝**: `pwquality`, `faillock` 잠금 정책 및 SSH `PermitRootLogin no` 적용
   - **보안 파일 전송망**: SFTP 전용 계정 `chroot` 격리 및 `nologin` 쉘 적용
   - **암호화 로그 수집**: rsyslog TLS 전송을 통한 도청 방지 및 Graylog 중앙 통합 관제
